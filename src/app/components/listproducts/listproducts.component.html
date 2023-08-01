@@ -1,0 +1,33 @@
+<div class="container-lg">
+    <div class="col mt-4">
+      <h2 class="text-light font-weight-bold fs-1 mt-4 text-center">LISTADO DE PRODUCTOS</h2>
+      <p><button type="button" class="btn btn-success btn-lg" (click)="goCreateProduct()">CREAR NUEVO PRODUCTO</button></p>
+      <div class="row align-items-center justify-content-center">
+      <div class="col-12 shadow p-3 mb-5 bg-body rounded mt-4">
+        <table class="table table-striped mt-4">
+          <thead>
+            <tr >
+              <th scope="col" class="text-center">IMAGEN</th>
+              <th scope="col"class="text-center">NOMBRE</th>
+              <th scope="col" class="text-center">DESCRIPCION</th>
+              <th scope="col"class="text-center">PRECIO</th>
+              <th scope="col" class="text-center"></th>
+              <th scope="col"class="text-center"></th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr *ngFor="let product of listProducts">
+              <td><img  [src]='product.imageURL' alt="Imagen_Producto"></td>
+              <td class="fs-5 lh-lg" >{{product.name}}</td>
+              <td class="fs-5 lh-lg">{{product.description}}</td>
+              <td class="fs-5 lh-lg">{{product.valor | currency}}</td>
+              <td class="lh-lg"><button type="button" class="btn btn-primary btn-lg" (click)="editProduct(product.id!)">Editar</button></td>
+              <td class="lh-lg"><button type="button" class="btn btn-success btn-lg" (click)="detailProduct(product.id!)">Ver Detalle</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+    </div>
+  </div>

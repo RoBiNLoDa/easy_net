@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <div class="body">
+        <h2 class="text-light font-weight-bold fs-1 mb-4 text-center">{{title}}</h2>
+
+        <form [formGroup]="productForm">
+            <div class="form-floating mb-3">
+                <input type="text" formControlName="imageURL" class="form-control" placeholder="Ingrese imagen" />
+                <label>Imágen</label>
+                <div class="text-warning"
+                    *ngIf="productForm.get('imageURL')?.hasError('required') && productForm.get('imageURL')?.touched">
+                    <span>La imagen <strong>es obligatoria</strong></span>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" formControlName="name" class="form-control" placeholder="Ingrese el password" />
+                <label>Nombre</label>
+                <div class="text-warning"
+                    *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched">
+                    <span>El nombre <strong>es obligatorio</strong></span>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" formControlName="description" class="form-control"
+                    placeholder="Ingrese el usuario" />
+                <label>Descripción</label>
+                <div class="text-warning"
+                    *ngIf="productForm.get('description')?.hasError('required') && productForm.get('description')?.touched">
+                    <span>La descripción <strong>es obligatoria</strong></span>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" formControlName="valor" class="form-control" placeholder="Ingrese el usuario" />
+                <label>Precio</label>
+                <div class="text-warning"
+                    *ngIf="productForm.get('valor')?.hasError('required') && productForm.get('valor')?.touched">
+                    <span>El valor <strong>es obligatorio</strong></span>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center align-items-center">
+                <button class="btn btn-primary fw-bold mt-2 btn-lg" [disabled]="productForm.invalid"
+                    (click)="createProduct()"><i class="pi pi-eye"></i>
+                    {{labelButton}}</button>
+                <button class="btn btn-success fw-bold mt-2 btn-lg" (click)="goBack()"><i class="pi pi-eye"></i>
+                    REGRESAR
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

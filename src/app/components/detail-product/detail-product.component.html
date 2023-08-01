@@ -1,0 +1,23 @@
+<div *ngIf="!product" class="row d-flex justify-content-center mt-4">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<section *ngIf="product" class="mx-auto" style="width: 95%">
+    <div class="row mt-4 justify-content-around">
+        <div class="card mb-4 opacity-" style="width: 25rem;">
+            <img [src]="product.imageURL" class="card-img-top mt-2" alt="movies">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Producto: </strong>{{product.name}}</h5>
+                <p class="card-text">{{product.description}}</p>
+                <h6 class="card-title"><strong>Precio:</strong> {{product.valor | currency}}</h6>
+                <div class="hidden"></div>
+                <div class="row d-flex justify-content-center align-items-center" >
+                    <button class="btn btn-primary fw-bold mt-2" (click)="goBack()"><i class="pi pi-eye"></i>
+                        REGRESAR</button>
+                    <button class="btn btn-danger fw-bold mt-2" (click)="deleteProduct(product.id!)"><i class="pi pi-eye"></i> ELIMINAR
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
